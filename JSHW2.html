@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<style>
+    td{background-color: lightcyan;}
+    th{background-color: lightsteelblue;}
+</style>
+
+<body>
+    <p> JS Calculator </p>
+    <table border = "1" style = "position: center">
+        <tr>
+            <td>Number 1</td>
+            <td> <input type = "text" id ="first"></td>
+        </tr>
+        <tr>
+            <td>Number 2</td>
+            <td> <input type = "text" id ="twice"></td>
+        </tr>
+        <tr>
+            <td colspan = "2" > Operate way?
+            <select name ="operator" id="sel">
+                <option value="+"> + </option>
+                <option value="-"> - </option>
+                <option value="*"> * </option>
+                <option value="/"> / </option>
+            </select></td>
+        </tr>
+        <tr>
+            <td colspan = "2"> <input type="button" value="calculate" onclick="start()"></td>
+        </tr>
+
+        <tr>
+            <td colspan = "2" rowspan="2"><p id="result"></p></td>
+        </tr>
+
+    </table>
+</body>
+    <script>
+        var result;
+
+
+        function start(){
+            if (sel.value == "+"){
+                add();
+            }else if (sel.value == "-"){
+                minus();
+            }else if (sel.value =="*"){
+                multiple();
+            }else if (sel.value == "/"){
+                devide();
+            }
+        }
+
+        // 加法
+        function add() {
+            var a = getFirstNumber();
+            var b = getTwiceNumber();
+            var res = Number(a) + Number(b);
+            sendResult(res);
+        }
+
+        // 減法
+        function minus(){
+            var a = getFirstNumber();
+            var b = getTwiceNumber();
+            var res = Number(a) - Number(b);
+            sendResult(res);
+        }
+
+        // 乘法
+        function multiple(){
+            var a = getFirstNumber();
+            var b = getTwiceNumber();
+            var res = Number(a) * Number(b);
+            sendResult(res);
+        }
+
+        // 除法
+        function devide(){
+            var a = getFirstNumber();
+            var b = getTwiceNumber();
+            var res = Number(a) / Number(b);
+            sendResult(res);
+        }
+
+        function sendResult(result_1){
+            var num = document.getElementById("result");
+            num.innerHTML = result_1;
+        }
+
+        function getFirstNumber(){
+            var firstNumber = document.getElementById("first").value;
+            return firstNumber;
+        }
+        function getTwiceNumber(){
+            var twiceNumber = document.getElementById("twice").value;
+            return twiceNumber;
+        }
+
+        
+
+
+    </script>
+
+</html>
